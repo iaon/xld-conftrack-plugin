@@ -2,17 +2,17 @@
 <synthetic xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd" xmlns="http://www.xebialabs.com/deployit/synthetic"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-    <type type="conftrack.Repository" extends="generic.Container">
+    <type type="conftrack.Repository" extends="udm.Configuration" virtual="true">
     </type>
 
     <type type="conftrack.svnRepository" extends="conftrack.Repository">
-        <property name="scheme" required="true" default="http" kind="string"/>
-        <property name="port" required="true" kind="integer" default="80"/>
-        <property name="path" required="true" kind="string" default="svn/repo"/>
+        <property name="URL" required="true" kind="string"/>
         <property name="username" required="false" kind="string"/>
         <property name="password" required="false" kind="string" password="true"/>
-
     </type>
+
+    <type type="conftrack.WorkingCopy" extends="udm.Configuration" virtual="true">
+    </type>extends="udm.Configuration" virtual="true">
 
 
 </synthetic>
