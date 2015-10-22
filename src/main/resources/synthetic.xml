@@ -16,8 +16,8 @@
     <type type="conftrack.svnWorkingCopy" extends="conftrack.WorkingCopy">
         <property name="host" kind="ci" referenced-type="overthere.Host" as-containment="true"/>
         <property name="Repository" required="true" kind="ci" referenced-type="conftrack.svnRepository"/>
-        <property name="WorkingDirectory" required="true" kind="string">
-        <property name="svnPath" required="true" kind="string">
+        <property name="WorkingDirectory" required="true" kind="string"/>
+        <property name="svnPath" required="true" kind="string"/>
         <method name="checkout"/>
     </type>
     
