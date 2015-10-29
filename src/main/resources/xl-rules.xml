@@ -2,7 +2,7 @@
 
 <rules xmlns="http://www.xebialabs.com/xl-deploy/xl-rules">
     <rule name="TestingScript" scope="plan">
-        <planning-script-path>script/testPlan.py</planning-script-path>
+        <planning-script-path>conftrack/commitConf.py</planning-script-path>
     </rule>
 </rules>
 

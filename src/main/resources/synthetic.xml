@@ -10,28 +10,11 @@
         <property name="password" required="false" kind="string" password="true"/>
     </type>
 
-    <type type="conftrack.WorkingCopy" extends="generic.Container" virtual="true">
-    </type>
-
-    <type type="conftrack.svnWorkingCopy" extends="conftrack.WorkingCopy">
-        <property name="host" kind="ci" referenced-type="overthere.Host" as-containment="true"/>
-        <property name="Repository" required="true" kind="ci" referenced-type="conftrack.svnRepository"/>
-        <property name="WorkingDirectory" required="true" kind="string"/>
-        <property name="svnPath" required="true" kind="string"/>
-        <method name="checkout"/>
-    </type>
-
-    <type type="conftrack.trackedHost" extends="generic.Container">
-        <property name="host" kind="ci" referenced-type="overthere.Host" as-containment="true"/>
-        <property name="Repository" required="true" kind="ci" referenced-type="conftrack.svnRepository"/>
-        <property name="WorkingDirectory" required="true" kind="string" default="/var/opt/conftrack"/>
-        <property name="filesToTrack" required="true" kind="list_of_strings"/>
-
-    </type>
-
-    
-    <type type="conftrack.TrackItem" extends="udm.BaseDeployedArtifact" deployable-type="conftrack.TrackedItem" container-type="conftrack.WorkingCopy">
-        <generate-deployable type="conftrack.TrackedItem" extends="udm.BaseDeployableFileArtifact"/>
-    </type>
+    <type-modification type="overthere.SshHost" >
+        <property name="TrackHost" required="true" kind="boolean" default="false" category="Tracking"/>
+        <property name="Repository" required="false" kind="ci" referenced-type="conftrack.svnRepository" category="Tracking"/>
+        <property name="WorkingDirectory" required="false" kind="string" default="/var/opt/conftrack" category="Tracking"/>
+        <property name="filesToTrack" required="false" kind="list_of_string" category="Tracking"/>
+    </type-modification>
 
 </synthetic>
