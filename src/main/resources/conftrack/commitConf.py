@@ -15,9 +15,7 @@ def getHosts():
     return depHosts
 # End def
 
-
-
-def update_hosts1(hosts, context):
+def update_hosts(hosts, context):
     print "START: update_hosts1"
     print hosts
     if context.getDeployedApplication() is None:
@@ -42,4 +40,4 @@ def update_hosts1(hosts, context):
     print "END  : update_hosts1"
 # End def
 
-update_hosts1( getHosts(), context )
+update_hosts( getHosts(), context )
