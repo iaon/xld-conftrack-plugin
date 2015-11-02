@@ -23,7 +23,7 @@
         <property name="WorkingDirectory" required="false" kind="string" default="/var/opt/conftrack" category="Tracking"/>
     </type-modification>
 
-    <type-modification type="yotaConfig.ldap" >
+    <type-modification type="yotaConfig.Ldap" >
         <property name="Track" required="true" kind="boolean" default="false" category="Tracking"/>
         <property name="LdapId" required="false" kind="string" default="ldap"/>
         <property name="Repository" required="false" kind="ci" referenced-type="conftrack.svnRepository" category="Tracking"/>

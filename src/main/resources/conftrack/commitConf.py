@@ -44,13 +44,13 @@ def getLdaps():
     print "======================================================================================="
     print "START: getLdaps"
     # Get our deployed containers
-    depHosts=[]
+    depLdaps=[]
     for delta in deltas.deltas:
         delta_op = str(delta.operation)
         deployed = delta.previous if delta_op == "DESTROY" else delta.deployed
         container = deployed.container
-        if container.TYPE_FIELD == "yotaConfig.Ldap:"
-           depHosts.append(container)
+        if container.TYPE_FIELD == "yotaConfig.Ldap:":
+           depLdaps.append(container)
     print "END  : getLdaps"
     print "======================================================================================="
     return depLdaps
