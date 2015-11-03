@@ -3,13 +3,23 @@ import os
 dir = env.WorkingDirectory + "/" + env.getName() + "/dict/"
 if not os.path.exists(dir):
     os.makedirs(dir)
-for dict in dicts:
-    fileName = dict.name.rpartition('/')[2]
+for dic in dicts:
+    fileName = str(dic).rpartition('/')[2]
     fileName = fileName + '.conf'
     file = open( dir + fileName, 'w')
-    for entry in dict.entries:
-        file.write(entry + '=' + dict.entries[entry] + '\n')
+    for entry in dic.getEntries():
+         file.write(str(entry) + '=' + str(dic.getValue(entry)) + '\n')
     file.close()
 os.chdir(dir + "..")
-commands.getoutput('svn add *')
-commands.getoutput('svn commit -m "Commit dictionary fom env:"' + env.getName())
+( status , out) = commands.getstatusoutput('svn up')
+print out
+if status != 0:
+   exit(status)
+( status , out) = commands.getstatusoutput('svn add dict')
+print out
+if status != 0:
+   exit(status)
+(status, out) =  commands.getstatusoutput('svn commit -m "Commit dictionary for env:' + env.getName() +'" dict' )
+print out
+if status != 0:
+   exit(status)

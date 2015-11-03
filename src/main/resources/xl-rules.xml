@@ -1,25 +1,9 @@
-<?xml version='1.0' encoding='UTF-8'?>
-
+<?xml version="1.0" encoding="UTF-8"?>
 <rules xmlns="http://www.xebialabs.com/xl-deploy/xl-rules">
-    <rule name="CommitConfFiles" scope="plan">
-        <planning-script-path>conftrack/commitConf.py</planning-script-path>
-    </rule>
-    <rule name="CommitDictionaryToSVN" scope="post-plan">
-    <steps>
-      <conditions>
-          <operation>CREATE</operation>
-          <operation>MODIFY</operation>
-          <expression>deployed.environment.TrackEnv</expression>
-      </conditions>
-        <jython>
-            <order>60</order>
-            <description>Commit dictionary to SVN</description>
-            <script-path>conftrack/retrieveAndCommitDictionary.py</script-path>
-            <jython-context>
-                <dicts expression="true">context.deployedApplication.environment.dictionaries</dicts>
-                <env expression="true">context.deployedApplication.environment</dicts>
-            </jython-context>
-         </jython>
-     </steps>
- </rule>
+  <rule name="conftrac.CommitConfFiles" scope="plan">
+    <planning-script-path>conftrack/commitConf.py</planning-script-path>
+  </rule>
+  <rule name="conftrack.CommitDictionaryToSVN" scope="post-plan">
+    <planning-script-path>conftrack/commitDictConf.py</planning-script-path>
+  </rule>
 </rules>
